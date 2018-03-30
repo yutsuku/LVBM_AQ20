@@ -53,6 +53,7 @@ LVBM_OSSIRIAN_CURSE_PREANNOUNCE	= "*** Next curse in ~5 sec ***";
 LVBM_OSSIRIAN_WEAK_ANNOUNCE	= "*** %s vulnerability for 45 sec ***";
 LVBM_OSSIRIAN_WEAK_EXPR		= "^Ossirian the Unscarred is afflicted by (.+) Weakness%.$";
 LVBM_OSSIRIAN_WEAK_RUNOUT	= "*** Supreme Mode in %d seconds ***";
+LVBM_OSSIRIAN_STOMP_EXPR		= "^Ossirian the Unscarred's War Stomp hits (.+) for";
 LVBM_OSSIRIAN_SUPREME_EXPR	= "Ossirian the Unscarred gains Strength of Ossirian.";
 LVBM_OSSIRIAN_SUPREME_ANNOUNCE	= "*** Supreme Mode ***";
 LVBM_OSSIRIAN_DEATH_EXPR	= "I...have...failed.";
@@ -60,6 +61,7 @@ LVBM_OSSIRIAN_DEATH_EXPR	= "I...have...failed.";
 
 -- Anubisath Guardians  (Ossirian)
 LVBM_GUARDIAN_NAME 			= "Anubisath Guardians";
+LVBM_GUARDIAN_DEATH 			= "Anubisath Guardian dies.";
 LVBM_GUARDIAN_INFO 			= "Warns for the Anubisath Guardians abilitys.";
 LVBM_GUARDIAN_SUMMON_INFO		= "Warn on Summon (Warrior/Swarmguard)";
 LVBM_GUARDIAN_THUNDERCLAP_EXPR	 	= "^Anubisath Guardian's Thunderclap hits ([^%s]+) for %d+%.";

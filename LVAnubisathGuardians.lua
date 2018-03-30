@@ -28,6 +28,7 @@ LVBM.AddOns.AnubisathGuardians = {
 		},
 	},
 	["Sort"] = 27,
+	["RespawnTimer"] = false,
 	["Events"] = {
 		["CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS"] = true,
 
@@ -40,6 +41,8 @@ LVBM.AddOns.AnubisathGuardians = {
 		["CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE"] = true,
 
 		["CHAT_MSG_SPELL_CREATURE_VS_CREATURE_BUFF"] = true,
+		
+		["CHAT_MSG_COMBAT_HOSTILE_DEATH"] = true,
 	},	
 	["OnEvent"] = function(event, arg1) 
 	
@@ -78,6 +81,15 @@ LVBM.AddOns.AnubisathGuardians = {
 				LVBM.Announce( LVBM_GUARDIAN_SUMMONEDGUARD_ANNOUNCE );
 			elseif ( arg1 == LVBM_GUARDIAN_SUMMONWARRIOR_EXPR ) then
 				LVBM.Announce( LVBM_GUARDIAN_SUMMONEDWARRIOR_ANNOUNCE );
+			end
+			
+		elseif (event == "CHAT_MSG_COMBAT_HOSTILE_DEATH" and arg1 == LVBM_GUARDIAN_DEATH ) then
+			if ( not LVBM.AddOns.AnubisathGuardians.RespawnTimer ) then
+				LVBM.AddOns.AnubisathGuardians.RespawnTimer = time();
+				LVBM.StartStatusBarTimer(3600, "Guardian Respawns");
+			elseif ( LVBM.AddOns.AnubisathGuardians.RespawnTimer + 3600 < time() ) then
+				LVBM.AddOns.AnubisathGuardians.RespawnTimer = time();
+				LVBM.StartStatusBarTimer(3600, "Guardian Respawns");
 			end
 		end
 

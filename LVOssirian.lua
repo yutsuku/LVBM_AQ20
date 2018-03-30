@@ -82,6 +82,13 @@ LVBM.AddOns.Ossirian = {
 		elseif( event == "Supreme15" ) then	LVBM.Announce( string.format(LVBM_OSSIRIAN_WEAK_RUNOUT, 15) );
 		elseif( event == "Supreme10" ) then	LVBM.Announce( string.format(LVBM_OSSIRIAN_WEAK_RUNOUT, 10) );
 		end
+		
+		if ( event == "CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE" or event == "CHAT_MSG_SPELL_CREATURE_VS_PARTY_DAMAGE" ) then
+			if ( string.find(arg1, LVBM_OSSIRIAN_STOMP_EXPR) ) then
+				LVBM.EndStatusBarTimer("War Stomp");
+				LVBM.StartStatusBarTimer(30, "War Stomp");
+			end
+		end
 
 		-- Supreme Mode warning
 		if ( event == "CHAT_MSG_SPELL_PERIODIC_CREATURE_BUFFS" and arg1 == LVBM_OSSIRIAN_SUPREME_EXPR) then
@@ -98,6 +105,8 @@ LVBM.AddOns.Ossirian = {
 			LVBM.UnSchedule("LVBM.AddOns.Ossirian.OnEvent");
 			LVBM.EndStatusBarTimer("Ossirians weakening");
 			LVBM.EndStatusBarTimer("Ossirians Curse");
+			LVBM.EndStatusBarTimer("Guardian Respawns");
+			LVBM.EndStatusBarTimer("War Stomp");
 		end
 
 	end,		
